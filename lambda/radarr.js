@@ -1,8 +1,8 @@
 const apikey = //eg: 1234567890abcd; 
 const url = //eg: siteaddress.com;
 const port = 7878;
-const protocol = 'http';
-const fullUrl = protocol+'://'+url+':'+port+'/api/v3/';
+const protocol = 'http'; //can use https if that is set up for your system
+const baseUrl = protocol+'://'+url+':'+port+'/api/v3/';
 
 const axios = require('axios');
 
@@ -11,7 +11,7 @@ class Radarr {
 		try {
 			const results = await axios({
 				method: 'get',
-				url: fullUrl+'movie/lookup',
+				url: baseUrl+'movie/lookup',
 				params: {
 					term: term,
 					apikey: apikey
@@ -38,7 +38,7 @@ class Radarr {
 		try {
 			const postResults = await axios({
 				method: 'post',
-				url: fullUrl+'movie',
+				url: baseUrl+'movie',
 				params: {apikey: apikey},
 				data: movie 
 			})
