@@ -1,6 +1,6 @@
 # Radarr Alexa Skill
 
-This is a simple skill you can add to your own account and use on your Echos to add movies to Radarr. Simply say "Alexa ask radar to add The Matrix". It will then return some results asking if you "Would like to add The Matrix Resurections from 2021". If you answer yes it will add the movie to Radarr. If you answer no it will go to the next movie on the list eg "Would you like to add The Matrix from 1999". 
+This is a simple skill you can add to your own account and use on your Echos to add movies to Radarr. Simply say "Alexa ask radar to add The Matrix". It will then return some results asking if you would like to add for example "The Matrix Resurrections from 2021". If you answer yes it will add the movie to Radarr. If you answer no it will go to the next movie on the list eg. "The Matrix from 1999". 
 
 ## Installation
 ### 1. Create an Alexa skill
@@ -27,7 +27,7 @@ This is a simple skill you can add to your own account and use on your Echos to 
 * Create a new file `radarr.js` and copy the contents from the repository
 * At the top of the radarr.js file you will need to change some variables
   * apiKey - From Radarr
-  * url - Internet accessable url to Radarr server
+  * url - Internet accessible url to Radarr server
   * port - If different than 7878
   * rootPath - The folder path to where the movie will be downloaded to
   * quality - This is the quality profile you use to download movies. To get this number you will need to go to your Radarr in a browser. Go to add a movie and search for any movie and select the first one. Then right click on the quality profile dropdown menu. Click on `inspect`. In the inspection console find the `options` and find the profile number that you would like to use.
