@@ -1,9 +1,11 @@
-const apikey = //eg: 1234567890abcd; 
-const url = //eg: siteaddress.com;
+const apikey = //eg. '1234abcd'; 
+const url = //eg. 'radarrserver.com';
 const port = 7878;
 const protocol = 'http'; //can use https if that is set up for your system
-const baseUrl = protocol+'://'+url+':'+port+'/api/v3/';
+const rootPath = //eg. 'C:\\Movies\\';
+const quality = 4;
 
+const baseUrl = protocol+'://'+url+':'+port+'/api/v3/';
 const axios = require('axios');
 
 class Radarr {
@@ -27,10 +29,10 @@ class Radarr {
 	async add(movie) {
 		const folder = movie.title.replace(':', '') + ' (' + movie.year + ')';
 		movie.monitored = true;
-		movie.rootFolderPath = 'F:\\Movies\\';
+		movie.rootFolderPath = rootPath;
 		movie.folder = folder;
 		movie.minimumAvailability = 'announced';
-		movie.qualityProfileId = 4;
+		movie.qualityProfileId = quality;
 		movie.addOptions = {
 			searchForMovie: true
 		}

@@ -1,53 +1,99 @@
 {
   "interactionModel": {
-    "languageModel": {
-      "invocationName": "radar",
-      "intents": [
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "HelloWorldIntent",
-          "slots": [],
-          "samples": [
-            "hello",
-            "how are you",
-            "say hi world",
-            "say hi",
-            "hi",
-            "say hello world",
-            "say hello"
-          ]
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.FallbackIntent",
-          "samples": []
-        },
-        {
-          "name": "AddMovieIntent",
-          "slots": [],
-          "samples": [
-            "add the movie",
-            "add movie",
-            "add"
-          ]
-        }
-      ],
-      "types": []
-    }
-  },
-  "version": "3"
+      "languageModel": {
+          "invocationName": "radar",
+          "intents": [
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.FallbackIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AddMovieIntent",
+                  "slots": [
+                      {
+                          "name": "movie",
+                          "type": "AMAZON.Movie",
+                          "samples": [
+                              "Braveheart",
+                              "The matrix"
+                          ]
+                      }
+                  ],
+                  "samples": [
+                      "download {movie}",
+                      "download the movie {movie}",
+                      "add the movie {movie}",
+                      "add {movie}"
+                  ]
+              },
+              {
+                  "name": "NoIntent",
+                  "slots": [],
+                  "samples": [
+                      "next",
+                      "No thank you",
+                      "No"
+                  ]
+              },
+              {
+                  "name": "YesIntent",
+                  "slots": [],
+                  "samples": [
+                      "yes please",
+                      "yes thank you",
+                      "Yes"
+                  ]
+              }
+          ],
+          "types": []
+      },
+      "dialog": {
+          "intents": [
+              {
+                  "name": "AddMovieIntent",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "movie",
+                          "type": "AMAZON.Movie",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.965599874137.1223501833576"
+                          }
+                      }
+                  ]
+              }
+          ],
+          "delegationStrategy": "ALWAYS"
+      },
+      "prompts": [
+          {
+              "id": "Elicit.Slot.965599874137.1223501833576",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "What movie would you like to download?"
+                  }
+              ]
+          }
+      ]
+  }
 }

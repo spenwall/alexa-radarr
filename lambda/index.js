@@ -12,7 +12,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Welcome, you can say download movie'
+        const speakOutput = 'Welcome, you can say download'
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -20,7 +20,6 @@ const LaunchRequestHandler = {
             .getResponse();
     }
 };
-
 
 const AddMovieIntentHandler = {
     canHandle(handlerInput) {
